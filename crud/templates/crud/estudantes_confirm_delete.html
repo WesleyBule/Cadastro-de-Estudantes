@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    Delete Estudante
+{% endblock page_title %}
+
+
+{% block content %}
+
+    <h1>Excluir Estudante?</h1>
+    
+    <p>Tem certeza que deseja excluir esse estudante?</p>
+    <p style="color:red;">Este estudante deixara de ser listado permanentemente!</p>   
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+        <a href="{% url "estudante_list" %}" class="btn btn-primary btn-sm">Cancelar</a>
+    </form>
+
+{% endblock content %}
+
+
+

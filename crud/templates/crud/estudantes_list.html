@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    Lista de Estudantes
+{% endblock page_title %}
+
+{% block content %}
+    <h1>Crud Estudantes</h1>
+    {% if estudantes_list %}
+        
+        <main class="container mb-5">
+            <table class="table container">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Idade</th>
+                        <th scope="col">Turma</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for estudante in estudantes_list %}
+                        <tr class="container">
+                            <th scope="row"> {{ estudante.pk }} </th>
+                            <td> {{ estudante.nome }} </td>
+                            <td> {{ estudante.idade }} </td>
+                            <td> {{ estudante.turma }} </td>
+                            <td>
+                                <a href="{% url "estudante_update" pk=estudante.pk %}" class="btn btn-primary btn-sm">Editar</a>
+                                <a href="{% url "estudante_delete" pk=estudante.pk %}" class="btn btn-danger btn-sm">Excluir</a>
+
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+                
+            </main>
+        {% else %}
+            <p>Nao ha estudantes cadastrados</p>
+        
+        {% endif %}
+        <a href="{% url "estudante_create" %}" class="btn btn-primary btn-sm">Adicionar novo estudante</a>
+{% endblock %}

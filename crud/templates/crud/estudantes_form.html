@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}
+    {% if estudante.pk %}
+        Editando Estudante
+    {% else %}
+        Cadastrando Estudante    
+    {% endif %}
+    
+{% endblock page_title %}
+
+{% block content %}
+
+
+    {% if estudante.pk%}
+        <h1>Editando Estudante </h1>
+    {% else %}
+        <h1> Cadastrando Estudante </h1>    
+    {% endif %} 
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{form|crispy}}
+
+        <button type="submit">Enviar</button>
+    </form>
+{% endblock content %}
