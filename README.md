@@ -19,4 +19,5 @@ Sistema de cadastro de alunos desenvolvido em **Python** com **Django**, utiliza
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/SEU-USUARIO/NOME-DO-REPO.git
+git clone https://github.com/WesleyBule/Cadastro-de-Estudantes.git
+
